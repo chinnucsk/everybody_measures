@@ -13,19 +13,22 @@ Have fun,
 
 
 Installing Erlang
-==============
+--------------
 
 Use kerl: https://github.com/spawngrid/kerl
 
 
 Compilation
-==============
+--------------
+
+Stand in the root of the project and do:
 
 $> ./rebar compile
 
 
 Test
-==============
+--------------
+
+Stand in the root of the project and do:
 
 $> ./rebar eunit
-
