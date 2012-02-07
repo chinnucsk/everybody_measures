@@ -27,9 +27,12 @@ stop(_State) ->
 -ifdef(TEST).
 
 simple_test() ->
+    ok = error_logger:tty(false),
+    ok = error_logger:logfile({open, "error_logger.log"}),
+
     ok = application:start(everybody_measures),
-    ?assertNot(undefined == whereis(everybody_measures_sup)),
-    ok = application:stop(everybody_measures),
+    ?assert(is_pid(whereis(everybody_measures_sup))),
+    ok = application:stop(everybody_measures).
 
 -endif.
 
