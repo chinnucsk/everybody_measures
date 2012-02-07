@@ -1,13 +1,11 @@
 
-timeseriesDB
+EverybodyMeasures
 ===========
 
 This project has just started, not much here yet.
 
-The short time goal is to have fun and learn some Erlang.
-
-
-More information on the project status can be found in the wiki.
+The short-time goal is to have fun, learn some Erlang, and experiment
+with the Lean Startup concepts
 
 
 Have fun,
