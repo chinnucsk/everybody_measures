@@ -12,6 +12,12 @@ Have fun,
   --  Peter
 
 
+Installing Erlang
+==============
+
+Use kerl: https://github.com/spawngrid/kerl
+
+
 Compilation
 ==============
 
