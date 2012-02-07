@@ -18,17 +18,26 @@ Installing Erlang
 Use kerl: https://github.com/spawngrid/kerl
 
 
+
+Test (+ test compilation)
+--------------
+
+Stand in the root of the project and do:
+
+$> make
+
+
 Compilation
 --------------
 
 Stand in the root of the project and do:
 
-$> ./rebar compile
+$> make compile
 
 
-Test
+Dependencies
 --------------
 
 Stand in the root of the project and do:
 
-$> ./rebar eunit
+$> make dependencies
