@@ -10,8 +10,11 @@ compile:
 
 all: dependencies
 
-dependencies:
+dependencies: create-log-dir
 	./rebar get-deps update-deps compile
+
+create-log-dir:
+	mkdir -p log
 
 clean: clean-emacs
 	./rebar clean
