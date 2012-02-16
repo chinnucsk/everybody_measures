@@ -14,7 +14,7 @@ handle(Req, State) ->
 	{[<<"hello.txt">>, <<"foo">>], Req2} ->
 	    {ok, Req3} = cowboy_http_req:reply(200, [], <<"Hello world3!">>, Req2);
 	_ ->
-	    {ok, Req3} = cowboy_http_req:reply(200, [], <<"Hello world!">>, Req)
+	    {ok, Req3} = cowboy_http_req:reply(200, [], <<"Everybody Measures - comming soon...">>, Req)
     end,
     {ok, Req3, State}.
 

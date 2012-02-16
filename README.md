@@ -12,9 +12,14 @@ Have fun,
   --  Peter
 
 
-Installing Erlang
+Development Setup
 --------------
 
+Nice write up on: http://wiki.basho.com/Installing-Erlang.html
+
+$> sudo aptitude install build-essential libncurses5-dev openssl libssl-dev
+
+Installing Erlang:
 Use kerl: https://github.com/spawngrid/kerl
 
 
