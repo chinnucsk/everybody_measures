@@ -1,6 +1,6 @@
 
 test:
-	rm .eunit/log/*
+	rm -f .eunit/log/*
 	./rebar eunit skip_deps=true
 
 test-log:

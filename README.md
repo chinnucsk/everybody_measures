@@ -15,6 +15,8 @@ Have fun,
 Development Setup
 --------------
 
+sudo apt-get install sqlite3 libsqlite3-dev
+
 Nice write up on: http://wiki.basho.com/Installing-Erlang.html
 
 $> sudo aptitude install build-essential libncurses5-dev openssl libssl-dev

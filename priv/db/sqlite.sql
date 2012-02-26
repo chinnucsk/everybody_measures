@@ -1,0 +1,9 @@
+
+CREATE TABLE IF NOT EXISTS real_measures (
+       time INTEGER PRIMARY KEY ON CONFLICT REPLACE,
+       value REAL NOT NULL);
+
+CREATE TABLE IF NOT EXISTS integer_measures (
+       time INTEGER PRIMARY KEY ON CONFLICT REPLACE,
+       value INTEGER NOT NULL);
+
