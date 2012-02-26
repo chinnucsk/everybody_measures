@@ -8,6 +8,8 @@
 -endif.
 
 start() ->
+    ok = error_logger:tty(false),
+    ok = ensure_started(lager),
     ok = ensure_started(crypto),
     ok = ensure_started(public_key),
     ok = ensure_started(ssl),
@@ -19,7 +21,8 @@ stop() ->
     ok = application:stop(cowboy),
     ok = application:stop(ssl),
     ok = application:stop(public_key),
-    ok = application:stop(crypto).
+    ok = application:stop(crypto),
+    ok = application:stop(lager).
 
 ensure_started(App) ->
     case application:start(App) of

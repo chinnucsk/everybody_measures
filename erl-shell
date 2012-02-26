@@ -1,3 +1,3 @@
 #!/bin/bash
 
-erl +P 10000000 -sname everybody_measures_node -s everybody_measures -pa deps/cowboy/ebin/ -pa ebin/
+erl +P 10000000 -sname everybody_measures_node -s everybody_measures -pa ebin/ -pa deps/cowboy/ebin/ -pa deps/lager/ebin/ -config sys.config
