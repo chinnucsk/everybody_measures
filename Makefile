@@ -1,9 +1,10 @@
 
 test:
+	rm .eunit/log/*
 	./rebar eunit skip_deps=true
 
 test-log:
-	cat .eunit/error_logger.log
+	cat .eunit/log/info.log
 
 compile:
 	./rebar compile skip_deps=true
