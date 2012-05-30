@@ -9,22 +9,29 @@
 
 start() ->
     ok = error_logger:tty(false),
+    ok = ensure_started(syntax_tools),
+    ok = ensure_started(compiler),
     ok = ensure_started(lager),
-    timer:sleep(10),
     ok = ensure_started(crypto),
     ok = ensure_started(public_key),
     ok = ensure_started(ssl),
-    ok = ensure_started(cowboy),
+    ok = ensure_started(inets),
+    ok = ensure_started(mochiweb),
+    ok = ensure_started(webmachine),
     ok = ensure_started(everybody_measures).
 
 stop() ->
-    ok = application:stop(everybody_measures),
-    ok = application:stop(cowboy),
+    Res = application:stop(everybody_measures),
+    ok = application:stop(webmachine),
+    ok = application:stop(mochiweb),
+    ok = application:stop(inets),
     ok = application:stop(ssl),
     ok = application:stop(public_key),
     ok = application:stop(crypto),
-    timer:sleep(10),
-    ok = application:stop(lager).
+    ok = application:stop(lager),
+    ok = application:stop(syntax_tools),
+    ok = application:stop(compiler),
+    Res.
 
 ensure_started(App) ->
     case application:start(App) of
@@ -38,18 +45,23 @@ ensure_started(App) ->
 %% Tests
 %% ===================================================================
 
--ifdef(TEST).
-
-start_stop_test() ->
-    error_logger:tty(false),
-    ok = application:load(lager),
-    application:set_env(lager,  handlers,  [{lager_file_backend, [{"log/error.log", error, 0, "", 0},
-								  {"log/info.log", info, 0, "", 0}]}]),
-    ok = application:start(lager),
-    ok = ?MODULE:start(),
-    ?assert(is_pid(whereis(everybody_measures_sup))),
-    ok = ?MODULE:stop().
-
--endif.
+%% -ifdef(TEST).
+%%
+%% configure_and_start_larger() ->
+%%     ok = error_logger:tty(false),
+%%     ok = application:load(lager),
+%%     ok = application:set_env(lager,  handlers,  [{lager_file_backend, [{"log/error.log", error, 0, "", 0},
+%% 								       {"log/info.log", info, 0, "", 0}]}]),
+%%     ok = ensure_started(syntax_tools),
+%%     ok = ensure_started(compiler).
+%%
+%% start_stop_test() ->
+%%     configure_and_start_larger(),
+%%     ok = ?MODULE:start(),
+%%     ?assert(is_pid(whereis(everybody_measures_sup))),
+%%     timer:sleep(1000),
+%%     ok = ?MODULE:stop().
+%%
+%% -endif.
 
 %% Eof

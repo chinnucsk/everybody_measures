@@ -6,7 +6,7 @@ test:
 test-log:
 	cat .eunit/log/info.log
 
-compile:
+compile: xref
 	./rebar compile skip_deps=true
 
 deps: dependencies
@@ -28,3 +28,9 @@ clean-emacs:
 
 rm-logs:
 	rm log/*
+
+xref:
+	./rebar xref skip_deps=true
+
+cover:
+	xdg-open .eunit/index.html

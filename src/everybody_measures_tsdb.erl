@@ -54,9 +54,7 @@ open_db() ->
     sqlite3:open(?DB, [in_memory]).
 
 close_db({ok, _Pid}) ->
-    sqlite3:close(?DB);
-close_db(_) ->
-    ok.
+    sqlite3:close(?DB).
 
 -endif.
 

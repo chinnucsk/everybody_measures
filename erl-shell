@@ -1,3 +1,15 @@
 #!/bin/bash
 
-erl +P 10000000 -sname everybody_measures_node -s everybody_measures -pa ebin/ -pa deps/cowboy/ebin/ -pa deps/lager/ebin/ -config sys.config
+#set -x
+
+cd `dirname $0`
+BASENAME=`basename $0`
+
+PA="-pa ebin"
+
+for d in `ls deps`;
+do
+    PA="$PA -pa deps/$d/ebin";
+done;
+
+erl +P 10000000 -sname ebm -config sys.config $PA $@
